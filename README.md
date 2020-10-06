@@ -2,7 +2,9 @@
 
 ## Implementation
 
-You must add this maven repo to project’s build.gradle
+First of all, minSdkVersion must be API 21 for DeepWall implementation
+
+After that you must add this maven repo to project’s build.gradle
 
 ```gradle
 allprojects {
