@@ -2,21 +2,23 @@
 
 ## Implementation
 
-You must add this maven repo to project’s build.gradle
+First of all, minSdkVersion must be API 21 for DeepWall implementation
+
+After that you must add this maven repo to project’s build.gradle
 
 ```gradle
 allprojects {
    repositories {
        google()
        jcenter()
-       maven { url https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }
+       maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/deepwall-android-sdk/master/' }
   }
 } 
 ``` 
 
 You must add this implementation to app’s build.gradle
 
-implementation 'deepwall:deepwall-core:1.0.0'
+implementation 'deepwall:deepwall-core:1.0.1'
 
 # Initialize
 The DeepWall library is started within the onCreate method of your application's launch activity class.
