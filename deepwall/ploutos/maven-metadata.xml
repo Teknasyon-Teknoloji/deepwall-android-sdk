@@ -3,11 +3,12 @@
   <groupId>deepwall</groupId>
   <artifactId>ploutos</artifactId>
   <versioning>
-    <latest>1.0.1-beta04</latest>
-    <release>1.0.1-beta04</release>
+    <latest>1.0.1-beta09</latest>
+    <release>1.0.1-beta09</release>
     <versions>
       <version>1.0.1-beta04</version>
+      <version>1.0.1-beta09</version>
     </versions>
-    <lastUpdated>20200917141717</lastUpdated>
+    <lastUpdated>20201026101741</lastUpdated>
   </versioning>
 </metadata>
