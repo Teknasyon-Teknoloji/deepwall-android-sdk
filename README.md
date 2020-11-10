@@ -18,7 +18,7 @@ allprojects {
 
 You must add this implementation to app’s build.gradle
 
-implementation 'deepwall:deepwall-core:2.0.0'
+implementation 'deepwall:deepwall-core:2.1.0'
 
 # Initialize
 The DeepWall library is started within the onCreate method of your application's launch activity class.
@@ -132,21 +132,31 @@ DeepWall posts some various events depending on ....
 
 - PAYWALL_OPENED
 Paywall opened event
+data as PaywallOpenedInfo 
+Parameters : pageId (Int)
+
  
 - CLOSED
 Paywall closed event
+data as PaywallClosedInfo
+Parameters : pageId (Int)
 
 - PAYWALL_RESPONSE_FAILURE
 PAYWALL response failure event
+data as PaywallFailureResponse
 Parameters:
 errorCode: String
 reason: String
 
 - DO_NOT_SHOW
 Paywall action show disabled event
+data as PaywallActionShowDisabledInfo
+Parameters:
+pageId : Int
 
 - PAYWALL_PURCHASING_PRODUCT
 Paywall purchasing product event
+data as PaywallPurchasingProductInfo
 Parameters:
 productCode: String
 
@@ -159,8 +169,8 @@ val subscriptionResponse = it.data as SubscriptionResponse
 Parameters:
 type : DeepWallReceiptValidationType
 result : SubscriptionDetail
--subscriptionList : Array of PurchaseSubscriptionItem
--productList : Array of String
+-subscriptions : Array of PurchaseSubscriptionItem
+-products : Array of String
 
 
 - PAYWALL_PURCHASE_FAILED
@@ -187,13 +197,15 @@ Fired after paywall response received. Useful for hiding loading indicator in yo
  ``` kotlin
 EventBus.subscribe(Consumer { 
 when(it.type){
-DeepWallEvent.EXTRA_DATA.value -> 
-{ Toast.makeText(this, it.data.toString(), Toast.LENGTH_SHORT).show() } 
+    DeepWallEvent.EXTRA_DATA.value -> { 
+    Toast.makeText(this, it.data.toString(), Toast.LENGTH_SHORT).show() } 
 
-DeepWallEvent.CLOSED.value -> 
-{ Toast.makeText(this, "Closed", Toast.LENGTH_SHORT).show() } 
+DeepWallEvent.CLOSED.value ->  {
+val data = it.data as PaywallClosedInfo
+Toast.makeText(this@MainActivity, "PAYWALL_CLOSED : ${data.pageId}", Toast.LENGTH_LONG).show() }
 
-DeepWallEvent.PAYWALL_PURCHASE_SUCCESS.value -> 
+
+DeepWallEvent.PAYWALL_PURCHASE_SUCCESS.value -> {
 val subscriptionResponse = it.data as SubscriptionResponse
 subscriptionResponse.result.subscriptionList.forEach { subItem->
     if(subItem.isActive == 1){
@@ -201,9 +213,11 @@ subscriptionResponse.result.subscriptionList.forEach { subItem->
     }
         }
 DeepWall.closePaywall()
+}
 
-DeepWallEvent.PAYWALL_OPENED.value -> 
-{ Log.d("PAYWALL_STATUS", "Paywall Opened") } 
+DeepWallEvent.PAYWALL_OPENED.value -> { 
+val data = it.data as PaywallOpenedInfo
+Toast.makeText(this@MainActivity, "PAYWALL OPENED : ${key.pageId}", Toast.LENGTH_LONG).show() } 
 }})
  ``` 
  
