@@ -18,7 +18,7 @@ allprojects {
 
 You must add this implementation to app’s build.gradle
 
-implementation 'deepwall:deepwall-core:2.1.1'
+implementation 'deepwall:deepwall-core:2.1.5'
 
 # Initialize
 The DeepWall library is started within the onCreate method of your application's launch activity class.
@@ -127,6 +127,12 @@ You could use closePaywall method to close Paywall pages.
 DeepWall.closePaywall()
  ``` 
  
+ # Consume Products
+You can use consumeProduct method to consume your products.
+ ``` kotlin
+DeepWall.consumeProduct(productId : String)
+ ``` 
+ 
 # Event Handling
 DeepWall posts some various events depending on ....
 
@@ -135,7 +141,6 @@ Paywall opened event
 data as PaywallOpenedInfo 
 Parameters : pageId (Int)
 
- 
 - CLOSED
 Paywall closed event
 data as PaywallClosedInfo
@@ -191,6 +196,15 @@ Fired after paywall requested. Useful for displaying loading indicator in your a
 
 - PAYWALL_RESPONSE_RECEIVED
 Fired after paywall response received. Useful for hiding loading indicator in your app.
+
+- PAYWALL_NOT_OPENED
+Fired if your product list is empty.
+
+- CONSUME_SUCCESS
+Fired after consume product request success
+
+- CONSUME_FAILURE
+Fired after consume product request failure
 
 # Usage Example
 
