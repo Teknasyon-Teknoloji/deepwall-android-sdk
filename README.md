@@ -18,7 +18,7 @@ allprojects {
 
 You must add this implementation to app’s build.gradle
 
-implementation 'deepwall:deepwall-core:2.1.5'
+implementation 'deepwall:deepwall-core:2.1.7'
 
 # Initialize
 The DeepWall library is started within the onCreate method of your application's launch activity class.
@@ -132,6 +132,34 @@ You can use consumeProduct method to consume your products.
  ``` kotlin
 DeepWall.consumeProduct(productId : String)
  ``` 
+ 
+ # Subscription Upgrade/Downgrade 
+ 
+ If you want to subscription upgrade or downgrade processes in your app you can use setProductUpgradePolicy method for general use 
+  ``` kotlin
+DeepWall.setProductUpgradePolicy(
+    prorationType = ProrationType.IMMEDIATE_WITHOUT_PRORATION,
+    upgradePolicy = PurchaseUpgradePolicy.ENABLE_ALL_POLICIES
+)
+ ``` 
+  
+  If you have different policies for your products you can use updateProductUpgradePolicy method for your paywalls. 
+``` kotlin
+DeepWall.updateProductUpgradePolicy(
+    prorationType = ProrationType.IMMEDIATE_WITHOUT_PRORATION,
+    upgradePolicy = PurchaseUpgradePolicy.ENABLE_ALL_POLICIES)
+ ``` 
+ 
+ For the detailed information about ProrationTypes you can see this document
+ https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProrationMode
+ 
+ | PurchaseUpgradePolicy | |
+| ----- | ----- |
+| ENABLE_ALL_POLICIES | All policies are open. Users can upgrade or downgrade their products|
+| DISABLE_ALL_POLICIES | All policies are closed. Users can not upgrade or downgrade their products |
+| ENABLE_ONLY_UPGRADE | Users can only upgrade their products |
+| ENABLE_ONLY_DOWNGRADE | Users can only downgrade their products|
+ 
  
 # Event Handling
 DeepWall posts some various events depending on ....
