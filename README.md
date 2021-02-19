@@ -18,7 +18,7 @@ allprojects {
 
 You must add this implementation to app’s build.gradle
 
-implementation 'deepwall:deepwall-core:2.1.7'
+implementation 'deepwall:deepwall-core:2.2.0'
 
 # Initialize
 The DeepWall library is started within the onCreate method of your application's launch activity class.
