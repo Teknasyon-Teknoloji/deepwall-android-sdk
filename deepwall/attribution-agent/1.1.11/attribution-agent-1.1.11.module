@@ -1,0 +1,147 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "deepwall",
+    "module": "attribution-agent",
+    "version": "1.1.11",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "s6bhupozwjh2vnyi6y4gz2xtyy"
+    }
+  },
+  "variants": [
+    {
+      "name": "deepwallReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        },
+        {
+          "group": "deepwall",
+          "module": "event-bus",
+          "version": {
+            "requires": "0.0.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "attribution-agent-1.1.11.aar",
+          "url": "attribution-agent-1.1.11.aar",
+          "size": 53442,
+          "sha512": "447ea4cdd508b53d0ade87133a96b83a073287d51e48834bd1c6ac64d1e4db1cf512cb72ee3ea1831036844c5bf2a64e13840944231334d59d4f271da68878fe",
+          "sha256": "2ee43b10eda5d6bf3bd1b2ead6a91cc714b839f41d515ebfd73c74cad8c474d5",
+          "sha1": "fccb56a9f31051c83912bbc941ad9ab37e862942",
+          "md5": "b3ce2d5ed5843e9e8ffe97f0dae00959"
+        }
+      ]
+    },
+    {
+      "name": "deepwallReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        },
+        {
+          "group": "deepwall",
+          "module": "event-bus",
+          "version": {
+            "requires": "0.0.7"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-parcelize-runtime",
+          "version": {
+            "requires": "1.4.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.4.2"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.3.2"
+          }
+        },
+        {
+          "group": "com.adjust.sdk",
+          "module": "adjust-android",
+          "version": {
+            "requires": "4.26.2"
+          }
+        },
+        {
+          "group": "com.android.installreferrer",
+          "module": "installreferrer",
+          "version": {
+            "requires": "2.2"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "17.0.1"
+          }
+        },
+        {
+          "group": "com.appsflyer",
+          "module": "af-android-sdk",
+          "version": {
+            "requires": "6.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "attribution-agent-1.1.11.aar",
+          "url": "attribution-agent-1.1.11.aar",
+          "size": 53442,
+          "sha512": "447ea4cdd508b53d0ade87133a96b83a073287d51e48834bd1c6ac64d1e4db1cf512cb72ee3ea1831036844c5bf2a64e13840944231334d59d4f271da68878fe",
+          "sha256": "2ee43b10eda5d6bf3bd1b2ead6a91cc714b839f41d515ebfd73c74cad8c474d5",
+          "sha1": "fccb56a9f31051c83912bbc941ad9ab37e862942",
+          "md5": "b3ce2d5ed5843e9e8ffe97f0dae00959"
+        }
+      ]
+    }
+  ]
+}
