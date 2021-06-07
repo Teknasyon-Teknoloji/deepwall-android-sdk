@@ -18,7 +18,9 @@ allprojects {
 
 You must add this implementation to app’s build.gradle
 
-implementation 'deepwall:deepwall-core:2.2.1'
+```gradle
+implementation 'deepwall:deepwall-core:2.3.0'
+```
 
 # Initialize
 The DeepWall library is started within the onCreate method of your application's launch activity class.
@@ -37,7 +39,7 @@ DeepWall.initDeepWallWith(
 | Parameters | |
 | ----- | ----- |
 | application | Instance of application class |
-| activity | Starting activity instancce |
+| activity | Starting activity instance |
 | apiKey | DeepWall Api Key |
 | environment | DeepWall environment. You should use SANDBOX for test, PRODUCTION for prod |
 
@@ -124,7 +126,18 @@ extraData = bundle
 # Closing Paywall Page
 You could use closePaywall method to close Paywall pages.
  ``` kotlin
-DeepWall.closePaywall()
+    DeepWall.closePaywall()
+ ``` 
+ 
+  # Custom Font Usage
+If you want to use your app fonts in Paywalls You must have font directory in your res directory (android/res/font). 
+After that you can use app fonts with DeepWall. 
+
+For the best performance you must call font function immediately after DeepWall initialization 
+
+ ``` kotlin
+    val fontFields = R.font::class.java.fields
+    DeepWall.setFontFields(fontFields)
  ``` 
  
  # Consume Products
